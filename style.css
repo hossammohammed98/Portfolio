@@ -116,6 +116,11 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
+.hero-icon-wrapper img {
+  width: 200px;
+  height: 200px;
+}
+
 .hero-icon-wrapper i {
   font-size: 5rem;
   color: #fff;
@@ -137,6 +142,19 @@ body {
   animation-delay: 1.5s;
 }
 
+/* ===== Buttons Fix (بدل d-flex) ===== */
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ================= BUTTONS ================= */
+.d-flex .btn {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
 .btn-primary {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
@@ -163,6 +181,7 @@ body {
   color: var(--bg-dark) !important;
 }
 
+/* ================= SECTIONS ================= */
 .section-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 800;
@@ -184,18 +203,25 @@ body {
   background-color: var(--bg-secondary);
 }
 
+section {
+  padding: 80px 20px;
+}
+
 #about {
   border-top: 1px solid var(--border-color);
 }
 
-.skill-card {
+/* ================= CARDS ================= */
+.skill-card,
+.project-card {
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   transition: 0.3s;
 }
 
-.skill-card:hover {
-  transform: translateY(-5px);
+.skill-card:hover,
+.project-card:hover {
+  transform: translateY(-8px);
   border-color: var(--primary-color);
 }
 
@@ -208,17 +234,6 @@ body {
 .badge {
   background-color: var(--primary-color) !important;
   color: var(--bg-dark) !important;
-}
-
-.project-card {
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  transition: 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary-color);
 }
 
 .project-image {
@@ -238,8 +253,13 @@ body {
   border: 1px solid var(--border-color) !important;
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ffffffa5;
+}
+
 .social-links a {
-  color: var(--text-light) !important;
+  color: #000;
   transition: 0.3s;
 }
 
@@ -247,13 +267,19 @@ body {
   color: var(--primary-color) !important;
   transform: translateY(-5px);
 }
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #ffffffa5; 
-  opacity: 1;      
-}
-/* footer */
 
+/* ================= FOOTER ================= */
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: #00d5ffe0;
+}
+
+.container p {
+  margin-bottom: 0 !important;
+  color: black;
+  padding-top: 15px;
+}
 
 /* ================= ANIMATIONS ================= */
 @keyframes fadeInUp {
@@ -268,10 +294,6 @@ body {
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
   50% {
     transform: translateY(-10px);
   }
@@ -288,24 +310,56 @@ body {
   }
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-  .navbar-nav {
-    background: var(--bg-secondary);
-    padding: 1rem;
-    border-radius: 10px;
+/* ================= TABLET ================= */
+@media (min-width: 768px) and (max-width: 992px) {
+  .hero-section {
+    text-align: center;
   }
 
-  .nav-link::after {
-    display: none;
+  .hero-section .row {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1.3rem;
+  }
+
+  .hero-icon-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-icon-wrapper img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .icon-ring {
+    width: 220px;
+    height: 220px;
+  }
+
+  .icon-ring.ring-2 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-buttons .btn {
+    min-width: 150px;
   }
 }
 
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  section {
-    padding: 60px 15px !important;
-  }
-
   .hero-section {
     text-align: center;
   }
@@ -314,17 +368,14 @@ body {
     flex-direction: column-reverse;
   }
 
-  .hero-visual {
-    margin-bottom: 2rem;
-  }
-
   .hero-icon-wrapper {
     width: 160px;
     height: 160px;
   }
 
-  .hero-icon-wrapper i {
-    font-size: 3.5rem;
+  .hero-icon-wrapper img {
+    width: 140px;
+    height: 140px;
   }
 
   .icon-ring {
@@ -333,21 +384,21 @@ body {
   }
 
   .icon-ring.ring-2 {
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
   }
 
-  .skill-card,
-  .project-card {
-    margin-bottom: 1.5rem;
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .project-image {
-    height: 160px;
-    font-size: 2.5rem;
+  .hero-buttons .btn {
+    width: 80%;
   }
 }
 
+/* ================= SMALL MOBILE ================= */
 @media (max-width: 576px) {
   body {
     font-size: 0.95rem;
@@ -357,8 +408,7 @@ body {
     font-size: 1.1rem;
   }
 
-  .btn {
+  .hero-buttons .btn {
     width: 100%;
-    margin-bottom: 0.75rem;
   }
 }
